@@ -29,13 +29,26 @@ Sample Output 2 Explanation :
 Price of your app should be Rs. 67. You can get the profit Rs. 201 (i.e. 3 * 67).
 */
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 
-int maximumProfit(int budget[], int n) {
-    // Write your code here
 
+int maximumProfit(int budget[], int n) {
+    sort(budget,budget+n);
+    int *cost = new int[n];
+    for(int i = 0; i <n ; i++){ 
+    	cost[i] = budget[i] * (n-i);
+    }
+    int max=0;
+    for(int i = 0; i <n ; i++){ 
+    	if(cost[i]>max){
+    		max = cost[i];
+    	}
+    }
+    return max;
 }
+
 
 int main() {
     int n ,*input,i,*cost;
