@@ -56,7 +56,7 @@ public:
 	}	
 	
 	//operator overloading	
-	fraction operator+(fraction const &f2){
+	fraction operator+(fraction const &f2)const{
 		int lcm = denominator * f2.denominator;
 		int x = lcm/denominator;
 		int y = lcm/f2.denominator;
@@ -66,7 +66,7 @@ public:
 		return fNew;
 	}
 	
-	fraction operator*(fraction const &f2){
+	fraction operator*(fraction const &f2)const{
 		int x = numerator * f2.numerator;
 		int y = denominator * f2.denominator;
 		fraction fNew(x,y);
@@ -74,8 +74,8 @@ public:
 		return fNew;
 	}
 	
-	bool operator==(fraction const &f2){
-		return (numerator == f3.numerator && denominator == f2.denominator);
+	bool operator==(fraction const &f2)const{
+		return (numerator == f2.numerator && denominator == f2.denominator);
 	}
 };
 
