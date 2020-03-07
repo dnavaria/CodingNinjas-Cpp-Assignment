@@ -16,7 +16,7 @@ public:
 		this->denominator = denominator;
 	}
 
-	void print(){
+	void print()const{
 		cout<<this->numerator<<" / "<<this->denominator<<endl;
 	}
 
@@ -55,7 +55,7 @@ public:
 		return fNew;
 	}	
 	
-	//operator overloading	
+	//overloading + oeprator	
 	fraction operator+(fraction const &f2)const{
 		int lcm = denominator * f2.denominator;
 		int x = lcm/denominator;
@@ -65,7 +65,7 @@ public:
 		fNew.simplify();
 		return fNew;
 	}
-	
+	//overloading * oeprator
 	fraction operator*(fraction const &f2)const{
 		int x = numerator * f2.numerator;
 		int y = denominator * f2.denominator;
@@ -73,9 +73,34 @@ public:
 		fNew.simplify();
 		return fNew;
 	}
-	
+	//overloading == oeprator
 	bool operator==(fraction const &f2)const{
 		return (numerator == f2.numerator && denominator == f2.denominator);
+	}
+	//overloading ++(Pre-Increment) oeprator	
+	fraction& operator++(){
+		numerator = numerator + denominator;
+		simplify();
+		return *this;
+	}
+	//overloading (Post-Increment)++ oeprator	
+	fraction& operator++(int){
+		fraction fNew(numerator,denominator);
+		numerator = numerator + denominator;
+		simplify();
+		fNew.simplify();
+		return fNew;
+	}
+	//overloading += operator
+	fraction& operator+=(fraction const &f2){
+		int lcm = denominator * f2.denominator;
+		int x = lcm/denominator;
+		int y = lcm/f2.denominator;
+		int num = x * numerator + (y * f2.numerator);
+		numerator = num;
+		denominator = lcm;
+		simplify();
+		return *this;
 	}
 };
 
