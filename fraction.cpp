@@ -1,7 +1,7 @@
 /*
 Representing fraction using oops
 */
-#include <bits/stdc++.h> 
+#include <iostream> 
 using namespace std;
 class fraction
 {
@@ -32,31 +32,60 @@ public:
 		this->denominator=this->denominator/gcd;
 	}
 
-	void add(fraction const &f2){
+	fraction add(fraction const &f2){
 		int lcm = denominator * f2.denominator;
 		int x = lcm/denominator;
 		int y = lcm/f2.denominator;
 
 		int num = x * numerator + (y * f2.numerator);
 
-		numerator = num;
-		denominator = lcm;
-		simplify();
+		//numerator = num;
+		//denominator = lcm;
+
+		fraction fNew(num,lcm);
+		fNew.simplify();
+		return fNew;
+	}
+
+	fraction multiply(fraction const &f2){
+		int x = numerator * f2.numerator;
+		int y = denominator * f2.denominator;
+		fraction fNew(x,y);
+		fNew.simplify();
+		return fNew;
+	}	
+	
+	//operator overloading	
+	fraction operator+(fraction const &f2){
+		int lcm = denominator * f2.denominator;
+		int x = lcm/denominator;
+		int y = lcm/f2.denominator;
+		int num = x * numerator + (y * f2.numerator);
+		fraction fNew(num,lcm);
+		fNew.simplify();
+		return fNew;
 	}
 	
-	void multiply(fraction const &f2){
-		numerator = numerator * f2.numerator;
-		denominator = denominator * f2.denominator;
-		simplify();
-	}	
+	fraction operator*(fraction const &f2){
+		int x = numerator * f2.numerator;
+		int y = denominator * f2.denominator;
+		fraction fNew(x,y);
+		fNew.simplify();
+		return fNew;
+	}
+	
+	bool operator==(fraction const &f2){
+		return (numerator == f3.numerator && denominator == f2.denominator);
+	}
 };
 
 
 int main(){
 	fraction f1(10,2);
 	fraction f2(15,4);
-	f1.add(f2);
+	fraction f3 = f1*f2;
 	f1.print();
 	f2.print();
+	f3.print();
 	return 0;
 }
