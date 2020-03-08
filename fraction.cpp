@@ -84,7 +84,7 @@ public:
 		return *this;
 	}
 	//overloading (Post-Increment)++ oeprator	
-	fraction& operator++(int){
+	fraction operator++(int){
 		fraction fNew(numerator,denominator);
 		numerator = numerator + denominator;
 		simplify();
