@@ -44,6 +44,37 @@ void print(Node *head){
 	}
 }
 
+Node* InsertAtIthPosition(Node *head,int i,int data){
+	Node *temp = head;
+	Node *newNode = new Node(data);
+	int count = 0;
+	if(i==0){
+		newNode->next = head;
+		head = newNode;
+		return head;
+	}
+	while(count < i-1 && temp){
+		temp = temp->next;
+		count++;
+	}
+	if(temp!=NULL){
+		newNode->next = temp->next;
+		temp->next = newNode;
+
+	}
+	return head;
+} 
+
+int length(Node *head) {
+  Node *t=head;
+  int count=0;
+  while(t){
+    count+=1;
+    t = t->next;
+  }
+    return count-1;
+}
+
 int main(){
 	Node *head = takeInput();
 	print(head);
