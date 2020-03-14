@@ -50,7 +50,7 @@ public :
     }
     
     void enqueue(T data) {
-        Node<T> *n = new Node<T(data);
+        Node<T> *n = new Node<T>(data);
         if(head==NULL){
         	head = n;
         	tail = n;
