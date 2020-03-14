@@ -75,7 +75,7 @@ public :
       }
       T ans = head->data;
       Node<T> *n = head;
-      head=head->data;
+      head=head->next;
       delete n;
       size--;
       return ans;
