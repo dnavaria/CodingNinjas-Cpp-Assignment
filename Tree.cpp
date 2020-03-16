@@ -15,9 +15,6 @@ public:
 	TreeNode(T data){
  		this->data = data;
 	}
-
-
-
 };
 
 TreeNode<int>* takeInputRecursive(){
