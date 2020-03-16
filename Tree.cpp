@@ -15,6 +15,13 @@ public:
 	TreeNode(T data){
  		this->data = data;
 	}
+
+	//Deletion of Tree
+	~TreeNode(){
+		for(int i = 0; i <this->children.size() ; i++){ 
+			delete children[i];
+		}
+	}
 };
 
 TreeNode<int>* takeInputRecursive(){
