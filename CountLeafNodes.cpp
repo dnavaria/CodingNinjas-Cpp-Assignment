@@ -23,6 +23,6 @@ int numLeafNodes(TreeNode<int>* root) {
     int temp =  numLeafNodes(root->children[i]);
  	n += temp; 
   }
-  return h;
+  return n;
 }
 
