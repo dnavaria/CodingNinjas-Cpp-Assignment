@@ -31,6 +31,14 @@ public:
 	bool isEmpty(){
 		return size==0;
 	}
+	
+	T front(){
+		if (isEmpty()){
+			cout<<"Queue Empty !"<<endl;
+			return 0;
+		}
+		return data[firstIndex];
+	}
 
 	void enqueue(T element){
 		if (size==capactiy){
@@ -45,15 +53,7 @@ public:
 		}
 		size++;
 	}
-
-	T front(){
-		if (isEmpty()){
-			cout<<"Queue Empty !"<<endl;
-			return 0;
-		}
-		return data[firstIndex];
-	}
-
+	
 	T dequeue(){
 		if (isEmpty()){
 			cout<<"Queue Empty !"<<endl;
