@@ -1,5 +1,5 @@
 /*
-	Count Number Of Nodes in BI Tree Recursivelys
+	Count Number Of Nodes in BI Tree Recursively
 */
 
 int countNodes(BinaryTreeNode<int> *root){
