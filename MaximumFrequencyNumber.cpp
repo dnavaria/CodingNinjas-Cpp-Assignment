@@ -23,7 +23,7 @@ Constraints :
 0 <= N <= 10^8
 Sample Input 1 :
 13
-2 12 2 11 12 2 1 2 2 11 12 2 6 
+2 12 2 11 12 2 1 2 2 11 12 2 6
 Sample Output 1 :
 2
 Sample Input 2 :
@@ -34,26 +34,32 @@ Sample Output 2 :
 */
 int highestFrequency(int *a, int n)
 {
-    unordered_map<int,int> um;
-    rep(i,n){
-        if(um.count(a[i]) == 0) {
+    unordered_map<int, int> um;
+    rep(i, n)
+    {
+        if(um.count(a[i]) == 0)
+        {
             um[a[i]] = 1;
-        }else{
+        }
+        else
+        {
             um[a[i]]++;
         }
     }
 
     int max = um[a[0]];
     int ans = a[0];
-    int j=1;
-    while(j<n){
-        if(um[a[j]] > max){
+    int j = 1;
+    while(j < n)
+    {
+        if(um[a[j]] > max)
+        {
             max = um[a[j]];
             ans = a[j];
         }
         j++;
     }
-return ans;
+    return ans;
 }
 
 
