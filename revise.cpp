@@ -139,7 +139,7 @@ void countFrequency(int *a, int n)
     }
     if(val)
     {
-        return maxFreq.second;
+        cout<< maxFreq.second;
     }
     else
     {
@@ -161,7 +161,7 @@ void countFrequency(int *a, int n)
             	minIndex = i->second;
             }
         }
-        return a[minIndex];
+        cout<< a[minIndex];
 
     }
 }
@@ -173,15 +173,21 @@ int main()
     cin.tie(0);
     cout.tie(0);
 
-    int n;
-    int input[100000];
-    cin >> n;
-    for(int i = 0; i < n; i++)
-    {
-        cin >> input[i];
-    }
+    unordered_map<int,int> um;
+    um[1] = 2;
+    cout<<um[1];
+    um[1] = 3;
+    cout<<um[1];
+    // int n;
+    // int input[100000];
+    // cin >> n;
+    // for(int i = 0; i < n; i++)
+    // {
+        // cin >> input[i];
+    // }
 
-    countFrequency(input, n);
+    // countFrequency(input, n);
+
     //multiplication => recursion
     // int m, n;
     // cin >> m >> n;
